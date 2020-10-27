@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 1, 2019 1:24:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Book" table="book" catalog="demomtm">
+        <id name="bid" type="java.lang.Integer">
+            <column name="bid" />
+            <generator class="identity" />
+        </id>
+        <property name="bname" type="string">
+            <column name="bname" length="200" />
+        </property>
+        <property name="bdate" type="string">
+            <column name="bdate" length="200" />
+        </property>
+        <set name="publications" table="publication" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="bid" />
+            </key>
+            <one-to-many class="com.pojo.Publication" />
+        </set>
+    </class>
+</hibernate-mapping>

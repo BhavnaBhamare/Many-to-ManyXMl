@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 1, 2019 1:24:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Publication" table="publication" catalog="demomtm">
+        <id name="pid" type="java.lang.Integer">
+            <column name="pid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="author" class="com.pojo.Author" fetch="select">
+            <column name="aid" />
+        </many-to-one>
+        <many-to-one name="book" class="com.pojo.Book" fetch="select">
+            <column name="bid" />
+        </many-to-one>
+        <property name="pname" type="string">
+            <column name="pname" length="200" />
+        </property>
+        <property name="pprice" type="string">
+            <column name="pprice" length="200" />
+        </property>
+        <property name="paddress" type="string">
+            <column name="paddress" length="200" />
+        </property>
+        <property name="pemail" type="string">
+            <column name="pemail" length="200" />
+        </property>
+        <property name="pphone" type="string">
+            <column name="pphone" length="200" />
+        </property>
+        <property name="pdate" type="string">
+            <column name="pdate" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

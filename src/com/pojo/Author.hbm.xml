@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 1, 2019 1:24:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.pojo.Author" table="author" catalog="demomtm">
+        <id name="aid" type="java.lang.Integer">
+            <column name="aid" />
+            <generator class="identity" />
+        </id>
+        <property name="aname" type="string">
+            <column name="aname" length="200" />
+        </property>
+        <property name="aemail" type="string">
+            <column name="aemail" length="200" />
+        </property>
+        <property name="aphone" type="string">
+            <column name="aphone" length="200" />
+        </property>
+        <property name="aaddress" type="string">
+            <column name="aaddress" length="200" />
+        </property>
+        <set name="publications" table="publication" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="aid" />
+            </key>
+            <one-to-many class="com.pojo.Publication" />
+        </set>
+    </class>
+</hibernate-mapping>
